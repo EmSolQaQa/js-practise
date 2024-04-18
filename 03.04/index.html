@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <script src="./script.js"></script>
+    <button class="start">start</button>
+    <button class="stop">stop</button>
+    <button class="reset">reset</button>
+    <h1 class="time">0</h1>
+    <script>
+        const start = document.querySelector(".start")
+        const stop = document.querySelector(".stop")
+        const reset = document.querySelector(".reset")
+        const time = document.querySelector(".time")
+        let second = time.textContent
+        let counter
+
+        start.addEventListener("click", (event) => {
+            if (!counter) {
+                counter = setInterval(() => {
+                second++
+                time.textContent = second
+            }, 1000);
+            return counter
+            }
+            
+            
+        })
+        stop.addEventListener("click", (event) => {
+            clearInterval(counter)
+            counter = null
+
+        })
+        reset.addEventListener("click", (event) => {
+            time.textContent = 0
+            second = 0
+
+        })
+    </script>
 </body>
+
 </html>

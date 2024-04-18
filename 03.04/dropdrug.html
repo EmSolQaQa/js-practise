@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+
+        .item {
+            width: 100px;
+            height: 40px;
+            background-color: green;
+        }
+
+        .space {
+            width: 100px;
+            height: 40px;
+            background-color: blue;
+        }
+
+        .box1,
+        .box2 {
+            max-width: 400px;
+            width: 100%;
+            min-height: 300px;
+        }
+
+        .container {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" class="submit">
+        <input type="text" class="item" draggable="true">
+        <button>submit</button>
+    </form>
+    <div class="space"></div>
+    <div class="container">
+
+        <div class="box1">
+
+        </div>
+        <div class="box2"></div>
+    </div>
+
+    <script>
+        const item = document.querySelector(".item")
+        const box1 = document.querySelector(".box1")
+        const box2 = document.querySelector(".box2")
+        const boxarr = [box1, box2]
+        const submit = document.querySelector(".submit")
+        const space = document.querySelector(".space")
+        boxarr.forEach(x => {
+            item.addEventListener("dragstart", (event) => {
+                console.log("basladi");
+            })
+            x.addEventListener("dragover", (event) => {
+                event.preventDefault()
+                console.log("agilli ol leblebi");
+            })
+            x.addEventListener("drop", (event) => {
+                console.log("tulla");
+                box1.append(item)
+            })
+        })
+        submit.addEventListener("submit", (e) => {
+            e.preventDefault()
+            
+        })
+        // item.addEventListener("dragstart",(event)=>{
+        //     console.log("basladi");
+        // })
+        // box1.addEventListener("dragover",(event)=>{
+        //     event.preventDefault()
+        //     console.log("agilli ol leblebi");
+        // })
+        // box1.addEventListener("drop",(event)=>{
+        //     console.log("tulla");
+        //     box1.append(item)
+        // })
+        // item.addEventListener("dragstart",(event)=>{
+        //     console.log("basladi");
+        // })
+        // box2.addEventListener("dragover",(event)=>{
+        //     event.preventDefault()
+        //     console.log("agilli ol leblebi");
+        // })
+        // box2.addEventListener("drop",(event)=>{
+        //     console.log("tulla");
+        //     box2.append(item)
+        // })
+
+
+
+    </script>
+</body>
+
+</html>
