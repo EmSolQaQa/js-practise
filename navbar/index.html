@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Navbar</div>
+            <div class="mainnav">
+                <ul>
+                    <li>Home</li>
+                    <li>Contact</li>
+                    <li>About</li>
+                </ul>
+            </div>
+            <div class="sandwich">
+                <i class="fa-solid fa-bars "></i>
+               
+            </div>
+            <div class="btn">
+                <i class="fa-solid fa-cloud-sun"></i>
+            </div>
+        </nav>
+        <div class="additionalnav">
+            <ul>
+                <li>Home</li>
+                <li>Contact</li>
+                <li>About</li>
+            </ul>
+        </div>
+    </header>
+    <script>
+        const sandwich = document.querySelector(".sandwich")
+        const additionalnav = document.querySelector(".additionalnav")
+        const icon = document.querySelector(".fa-bars")
+
+        sandwich.addEventListener("click",()=>{
+            const isExist = additionalnav.classList.toggle("active");
+            console.log(isExist);
+            if (isExist) {
+                sandwich.innerHTML = `<i class="fa-solid fa-xmark "></i>`
+            }
+            else{
+                sandwich.innerHTML = `<i class="fa-solid fa-bars "></i>`
+            }
+        })
+
+        
+        const darkbtn = document.querySelector(".fa-cloud-sun")
+        const isLight = localStorage.getItem("theme")
+        if(isLight=="darkmode"){
+            document.body.classList.add("darkmode")
+        }
+
+        darkbtn.addEventListener("click",()=>{
+      
+            if (document.body.classList.contains("darkmode")) {
+                document.body.classList.remove("darkmode")
+              localStorage.setItem("theme","lightmode")
+        }
+        else{ 
+            document.body.classList.add("darkmode")
+              localStorage.setItem("theme","darkmode")
+            
+        }
+            
+        })
+
+    
+     
+
+    </script>
+</body>
+</html>

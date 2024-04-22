@@ -1,0 +1,50 @@
+body{
+    background-color: wheat;
+}
+.darkmode{
+    background-color: black;
+    color: white;
+}
+.simple{
+    background-color: wheat;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.sandwich{
+    display: block;
+    cursor: pointer;
+}
+ul{
+    display: flex;
+    
+}
+li{
+    padding: 0 20px;
+    list-style: none;
+}
+.additionalnav{
+    background-color: aqua;
+    /* display: none; */
+    height: 100px;
+    visibility: hidden;
+    overflow: hidden;
+    transform: translateY(100%);
+    transition: 15000ms;
+}
+.active{
+    display: block;
+    visibility: visible;
+    transform: translateY(0%);
+ 
+}
+@media screen and (max-width: 992px) {
+    .mainnav{
+        display: none;
+    }
+    .sandwich{
+        display: block;
+    }
+}
